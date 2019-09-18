@@ -1,0 +1,3 @@
+napisati program koji ce ispisati cijele brojeve od 0 do 1000 s korakom 7
+
+napisi programkoji ce ucitavati brojeve dok se ne ucita 0
