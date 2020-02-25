@@ -1,0 +1,13 @@
+#include <cctype>
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+	string rec="petar petru plete petlju";
+	rec.replace(18,6,"pletenicu");
+	cout<<rec;
+}
