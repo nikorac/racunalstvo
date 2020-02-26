@@ -1,0 +1,26 @@
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+string predmet;
+int o1, o2, o3, o4, bo;
+float po;
+ifstream o;
+o.open("D:\\BH\\Ocjene.txt");
+getline(o, predmet);
+o>>o1;
+o>>o2;
+o>>o3;
+o>>o4;
+o>>bo;
+po = (o1+o2+o3+o4)/bo;
+cout<<"Predmet: "<<predmet<<endl;
+cout<<"Ocjene: "<<o1<<", "<<o2<<", "<<o3<<", "<<o4<<endl;
+cout<<"Prosjek ocjena: "<<po<<endl;
+
+system("pause");
+return 0;
+}
