@@ -1,0 +1,19 @@
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    float broj;
+    float broj2;
+    float suma;
+    ifstream lol("D:\\auto.txt");
+    lol>>broj;
+    lol>>broj2;
+    cout<<"Suma brojeva "<<broj<<" i "<<broj2<<" je "<<broj+broj2<<endl;
+    lol.close();
+    system ("PAUSE");
+    return 0;
+}
