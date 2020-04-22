@@ -1,0 +1,65 @@
+1.3 I otprilike 2. zadatak
+
+#include <iostream>
+
+#include <cstdlib>
+
+#include <map>
+
+#include <vector>
+
+#include <algorithm>
+
+#include <fstream>
+
+#include <string>
+
+using namespace std;
+
+int main()
+
+{
+
+ofstream file; // tolko je kaoticno da se barem moze vidit da nisam prepisivo
+
+file.open("C:\\Niko c++\\vozila.txt") ;
+
+std::map<int , std::string> vozila;
+
+vozila[1] = "auto";
+
+vozila[2] = "brod";
+
+vozila[3] = "motor";
+
+vozila[4] = "avion";
+
+vozila.erase (vozila[1]); // (ovo je i 3. zad)
+
+vozila.insert(std::pair<int , std::string>(1, "trajekt"));
+
+file<<vozila[1]<<endl<<vozila[2]<<endl<<vozila[3]<<endl<<vozila[4]<<endl<<vozila[5];
+
+for(int i=1;i<vozila.size();i++)
+
+{
+
+cout<<vozila[i]<<" :: "<<i<<endl;
+
+}
+
+std::map<int , std::string>::iterator it = vozila.find(2);
+
+std::cout<<"rijec "<<it->second<<" je pronadena"<<endl; //ovo je neka verzija 2. zadatka, nerazumijem
+
+std::map<int , std::string>::iterator it2 = vozila.find(4);//onda sto se trazi na kraju prvog
+
+std::cout<<"rijec "<<it2->second<<" je pronadena"<<endl; // kad napravim 2. normalno otvori mi makefile.win projekt i tamo mi da error
+
+file.close();
+
+system("PAUSE");
+
+return 0;
+
+}
