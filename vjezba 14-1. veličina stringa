@@ -1,0 +1,16 @@
+#include <iostream>
+#include <cstdlib>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <cstring>
+using namespace std;
+int main()
+{
+	string A;
+	cin>>A;
+	cout<<"Duljina tog stringa je "<<A.size();
+	return 0;
+	system("PAUSE");
+}
