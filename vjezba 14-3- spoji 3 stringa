@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cstdlib>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <cstring>
+using namespace std;
+int main()
+{
+	string A, B, C, D;
+	getline(cin, A);
+	getline(cin, B);
+	getline(cin, C);
+	C=A+B+C;
+	cout<<C;		
+return 0;
+system ("PAUSE");	
+}
