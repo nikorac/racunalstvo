@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cstdlib>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <cstring>
+using namespace std;
+int main()
+{
+	string recenica;
+	getline(cin, recenica);
+	for(int i=recenica.size();i>=0;i--)
+	{
+		cout<<recenica[i];
+	}
+return 0;
+system ("PAUSE");	
+}
