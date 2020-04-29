@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cstdlib>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <cstring>
+using namespace std;
+int main()
+{
+	string A;
+	getline(cin, A);
+	int br=A.find(" ");
+	int br2=br+1;
+	A.erase(0, br2);
+	cout<<A;
+return 0;
+system ("PAUSE");	
+}
