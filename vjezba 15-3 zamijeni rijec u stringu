@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cstdlib>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <cstring>
+using namespace std;
+int main()
+{
+	string A;
+	getline(cin, A);
+	int sp1 = A.find(" ");
+  if (sp1 == std::string::npos)
+    return 0;
+	int sp2=sp1+1;
+  sp1 = A.find(" ", sp2);
+  if (sp2 == std::string::npos)
+    return 0;
+    int rijec=sp2-sp1;
+    cout<<rijec;
+	A.replace(sp1, sp2, " dakle ");
+	cout<<A;
+return 0;
+system ("PAUSE");	
+}
