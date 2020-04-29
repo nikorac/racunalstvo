@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cstdlib>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <cstring>
+using namespace std;
+int main()
+{
+	string a, b;
+	getline(cin, a);
+	getline(cin, b);
+	if(a.find(b)!= string::npos)
+	{
+		cout<<"bruga rijec je dio prve";
+	}
+	else
+	{
+		cout<<"druga rijec nije dio prve";
+	}
+return 0;
+system ("PAUSE");	
+}
