@@ -1,0 +1,87 @@
+#include <iostream>
+#include <cstdlib>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <cstring>
+using namespace std;
+int main()
+{	//zelio sam dosta tezi zadatak:)
+    int c;
+    vector<int>d;
+    int br=0;
+    map<int, string> mjeseci;
+    mjeseci[1]="sijecanj";
+    mjeseci[2]="veljača";
+    mjeseci[3]="ozujak";
+    mjeseci[4]="travanj";
+    mjeseci[5]="svibanj";
+    mjeseci[6]="lipanj";
+    mjeseci[7]="srpanj";
+    mjeseci[8]="kolovoz";
+    mjeseci[9]="rujan";
+    mjeseci[10]="listoopad";
+    mjeseci[11]="studeni";
+    mjeseci[12]="prosinac";
+    cout<<"Upisi broj mjeseca bez ponavljanja i program ce ih sortirat te zavrsi s '0'"<<endl;
+    cin>> c;
+    here:
+    if(c>12)
+        {
+        	cout<<"broj je veci od '12',  upisi ponovno";
+        	cin>>c;
+        	goto here;
+		}
+	while(c!=0)
+    {
+        d.push_back(c);
+        cin>>c;
+        here1:
+        if(c>12)
+        {
+        	cout<<"broj je veci od '12',  upisi ponovno";
+        	cin>>c;
+        	goto here1;
+		}
+        br++;
+    }
+	cout<<endl;
+    for(int i=1;i<br;i++)
+    {
+        int b=d[i];
+        int h=i;
+        while(h>0&&d[h-1]>b)
+        {
+            d[h]=d.at(h-1);
+            h--;
+        }
+        d.at(h)=b;
+    }
+    //		pokusaj da se izbaci duplikat ali
+    //			std::out_of_range
+    //int max=d.back();
+    //for(int i=max;i>=1;i++)
+    //{
+    //	here2:
+    //	if(d.at(i)==d.at(i-1))
+    //	{
+    //		d.erase(d.begin()+i);
+    //		goto here2;
+	//	}
+	//}
+      for(int i5=0;i5<br;i5++)
+    {
+		cout<<"Mjesec "<<mjeseci[d.at(i5)]<<" je "<<d.at(i5)<<". po redu"<<endl;//prekasno sam shvatio da trebam staviti d.at(i5) pod mjeseci
+	}																			// i bio sam probo 5 drugih stvari prije nego sto sam se sjetio
+    //		ovo ispod je jedan od tih pokusaja
+	//map<int, string> mjeseci1;
+    //
+    //map<int, string>::iterator it=mjeseci.begin();
+    //while(it!=mjeseci.end())
+    //{
+    //	cout<<"mjesec "<<(*it).second<<" je "<<(*it).first<<". po redu"<<endl;
+    //	it++;
+	//}
+return 0;
+}
