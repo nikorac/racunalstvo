@@ -1,0 +1,19 @@
+  
+#include <iostream>
+#include <cstdlib>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <cstring>
+using namespace std;
+int main()
+{
+	string b;
+	getline (cin,b);
+	string::iterator it=b.begin();
+	string::iterator it2=b.end();
+	b.erase(it+1,it2-1);			//tehnički se koriste iteratori i erase:)
+	
+	cout<<b;
+}
