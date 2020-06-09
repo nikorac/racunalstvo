@@ -1,0 +1,112 @@
+#include <iostream>
+#include <windows.h>
+#include <conio.h>
+#include <time.h>
+using namespace std;
+
+int main()// Flappy bird
+{
+    srand(time(0));//to make the program randomize
+    char mv;
+    char repeat='y';//omogučava počimanje igre odmah
+    int highscore=0;
+    while (repeat=='y'){//počinje igra
+    int score=0;
+    bool wasit=true;
+    int x=9;
+    int rintangan[3]; // ------------
+    int rintang[3];// udaljenost zidova
+    rintang[0]=10;// gdje će se stvoriti 1. zid
+    rintang[1]=18;//gdje će se stvoriti 2 zid
+    rintang[2]=27; // gdje će se stvoriti 3. zid
+    for (int i=0;i<3;i++)
+    {
+        rintangan[i]=(rand())%12;//
+    }
+    string map[20][30];// visina igre 20 i dužina igre 30
+    for (int i=0;i<20;i++)
+    {
+        for (int j=0;j<30;j++)
+        {
+            if ( i==0 || i==19|| j==29 || j==0)
+                map[i][j]="* ";//crta okvir igre
+            else
+                map[i][j]="  ";//ostavlja sve ostalo prazno
+        }
+    }
+    while (wasit == true)//dok nisi dotaknuo zid
+    {
+        for (int i =0;i<3;i++)
+        {
+            for (int j=1;j<19;j++)
+            {
+                map[j][rintang[i]]="  ";//stavlja što će biti između zidova
+            }
+        }
+        for (int i=0;i<3;i++) //miče mapu od ljevo naprema desno
+        {
+            rintang[i]--;
+        }
+        for (int i =0;i<3;i++)
+        {
+            for (int j=1;j<19;j++)
+            {
+                map[j][rintang[i]]="* ";// crta zidove vertikalno
+            }
+        }
+        for (int i=0;i<3;i++)
+        {
+            map[rintangan[i]][rintang[i]]="  ";// na mjestima zidova radi rupe...
+            map[rintangan[i]+1][rintang[i]]="  ";
+            map[rintangan[i]+2][rintang[i]]="  ";
+            map[rintangan[i]+3][rintang[i]]="  ";
+            map[rintangan[i]+4][rintang[i]]="  ";// visoke 5 mjesta
+        }
+        for (int i=0;i<3;i++)
+        {
+            if (rintang[i]==1)
+                {rintang[i]=29;
+                rintangan[i]=(rand()-1)%12+2;//briše na kraju i stvara na početku zid
+                }
+        }
+        map[x][3]="  ";//briše trag nakon što se poziija igrača promjeni
+        if (kbhit())// ako se neka tipka stisne...
+        {
+            mv=getch();//restarta pticu tako da opet ide dole prema defaultu
+            x=x-3;//ptica se podigne za 3 mjesta
+        }
+        x++;//ptica pada
+        if(x<1)
+            x=1;// nemože se umrijeti ako ptica dotakne strop
+        for (int i=0;i<3;i++)
+        {
+            if (rintang[i]==3)
+                if (map[x][3]=="  ")//ako prođe kroz rupu...
+                    score=score+1;// score se poveća
+                if (map[x][3]=="* ")//ako udari zid(ali ne i pod ili strop)
+                    wasit=false;//igra je gotova(petlja završava)
+        }
+        map[x][3]="& ";//kako igrač izgleda
+        for (int i=1;i<19;i++)
+        {
+            map[i][1]="  ";//kako će zadnji red izgledati
+        }
+        for (int i=0;i<20;i++)
+        {
+            for (int j=0;j<30;j++)
+            {
+                cout << map[i][j];//crta mapu tako da igrač može vidjeti
+            }
+        cout <<endl;
+        }
+        cout << "Score = "<<score;//ispisuje score
+    Sleep (100);//usporava osvježavanje programa
+    system ("cls");//zatvara igru svaki put te se otvori opet ako je "wasit==true"
+    }
+    cout << "Score = " <<score<<endl;//ispisuje zanji ekran
+    if (highscore<score)
+        highscore=score;
+    cout << "Highscore= "<<highscore<<endl;//mijenja highscore
+    cout << "retry?(y/n) = "; cin >>repeat;}//pita hoćeš češ nastaviti
+    return 0;
+}
